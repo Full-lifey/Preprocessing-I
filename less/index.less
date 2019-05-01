@@ -4,6 +4,11 @@
    License: none (public domain)
 */
 
+@text-small: 1rem;
+@text-medium: 1.35rem;
+@text-large: 1.7rem;
+@text-huge:	2.5rem;
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -53,7 +58,159 @@ table {
     box-sizing: border-box;
 }
 
+.bordered {
+	border-top: 1px solid lightgrey;
+	border-bottom: 1px solid lightgrey;
+}
+.mobile {
+	flex-flow: column nowrap;
+}
+h1, h2, h3, h4 {
+	font-family: 'Cormorant Unicase', serif;
+	font-weight: bold;
+}
 html, body {
-    height: 100%;
+	height: 100%;
 }
 
+.container {
+	width: 100%;
+	max-width: 800px;
+	margin: 0 auto;
+}
+
+nav {
+	display: flex;
+	justify-content: flex-end;
+	flex-wrap: nowrap;
+	a {
+		text-decoration: none;
+		color: black;
+		margin: 0 2%;
+	}
+	a:hover {
+		color: white;
+		background: darkgrey;
+	}
+	@media (max-width: 500px) {
+		.mobile();
+		a {
+			padding: 10px 0;
+			.bordered();
+			width: 100%;
+			text-align: center;
+		}
+
+	}
+}
+
+header {
+	background: lightgrey;
+	display: block;
+	width: 100%;
+	padding: 20px 2% 30px 2%;
+	img {
+		width: 30%;
+	}
+	h1 {
+		font-size: @text-huge;
+	}
+	p {
+		font-size: @text-medium;
+	}
+	.notes {
+		font-size: @text-small;
+	}
+	button {
+		background: darkgrey;
+		color: white;
+		border-radius: 5px;
+		width: 15%;
+		cursor: pointer;
+		padding: 5px 0;
+	}
+	button:hover {
+		background: black;
+	}
+}
+
+.intro-skills {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 20px;
+	.intro {
+		width: 47%;
+		h2 {
+			font-size: @text-large;
+			margin-bottom: 10px;
+		}
+		p {
+			font-size: @text-small
+		}
+	}
+	.skills {
+		width: 47%;
+		h3 {
+			font-size: @text-medium;
+			font-weight: bold;
+		}
+		.skill-items {
+			margin-top: 10px;
+		}
+		li {
+			width: 100%;
+			border: 1px solid lightgrey;
+			font-size: @text-small;
+			padding: 5px 0;
+		}
+	}
+	@media (max-width: 500px) {
+		.mobile();
+		.intro {
+			width: 100%;
+		}
+		.skills {
+			width: 100%;
+			margin-top: 20px;
+			li {
+				text-align: center;
+			}
+		}
+	}
+}
+
+.work-history {
+	margin: 20px 0;
+	h3 {
+		font-size: @text-medium;
+		font-weight: bold;
+	}
+	table {
+		margin-top: 10px;
+		.bordered();
+		// border-top: 1px solid lightgrey;
+		// border-bottom: 1px solid lightgrey;
+		border-collapse: collapse;
+		}
+		.table-header {
+			font-weight: bold;
+		}
+		th, td {
+			text-align: left;
+			padding-top: 10px;
+			padding-bottom: 10px;
+		}
+		.first-row {
+			background: lightgrey;
+		}
+
+}
+
+footer {
+	margin-top: 20px;
+	background: rgb(78, 78, 78);
+	text-align: center;
+	width: 100%;
+	padding: 15px;
+	color: white;
+}
