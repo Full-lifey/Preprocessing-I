@@ -6,8 +6,8 @@
 
 @text-small: 1rem;
 @text-medium: 1.35rem;
-@text-large: 1.8rem;
-@text-huge:	2.25rem;
+@text-large: 1.7rem;
+@text-huge:	2.5rem;
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -58,6 +58,17 @@ table {
     box-sizing: border-box;
 }
 
+.bordered {
+	border-top: 1px solid lightgrey;
+	border-bottom: 1px solid lightgrey;
+}
+.mobile {
+	flex-flow: column nowrap;
+}
+h1, h2, h3, h4 {
+	font-family: 'Cormorant Unicase', serif;
+	font-weight: bold;
+}
 html, body {
 	height: 100%;
 }
@@ -76,6 +87,20 @@ nav {
 		text-decoration: none;
 		color: black;
 		margin: 0 2%;
+	}
+	a:hover {
+		color: white;
+		background: darkgrey;
+	}
+	@media (max-width: 500px) {
+		.mobile();
+		a {
+			padding: 10px 0;
+			.bordered();
+			width: 100%;
+			text-align: center;
+		}
+
 	}
 }
 
@@ -104,6 +129,9 @@ header {
 		cursor: pointer;
 		padding: 5px 0;
 	}
+	button:hover {
+		background: black;
+	}
 }
 
 .intro-skills {
@@ -115,7 +143,6 @@ header {
 		h2 {
 			font-size: @text-large;
 			margin-bottom: 10px;
-			font-weight: bold;
 		}
 		p {
 			font-size: @text-small
@@ -137,6 +164,19 @@ header {
 			padding: 5px 0;
 		}
 	}
+	@media (max-width: 500px) {
+		.mobile();
+		.intro {
+			width: 100%;
+		}
+		.skills {
+			width: 100%;
+			margin-top: 20px;
+			li {
+				text-align: center;
+			}
+		}
+	}
 }
 
 .work-history {
@@ -147,8 +187,9 @@ header {
 	}
 	table {
 		margin-top: 10px;
-		border-top: 1px solid lightgrey;
-		border-bottom: 1px solid lightgrey;
+		.bordered();
+		// border-top: 1px solid lightgrey;
+		// border-bottom: 1px solid lightgrey;
 		border-collapse: collapse;
 		}
 		.table-header {
@@ -165,3 +206,11 @@ header {
 
 }
 
+footer {
+	margin-top: 20px;
+	background: rgb(78, 78, 78);
+	text-align: center;
+	width: 100%;
+	padding: 15px;
+	color: white;
+}
